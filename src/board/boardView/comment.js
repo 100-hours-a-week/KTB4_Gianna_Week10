@@ -1,7 +1,7 @@
-import { postId, getUser } from "./boardView.js";
+import { getPostId, getUser } from "../../module/module.js";
 
 const postCommentBtn = document.getElementById('postCommentBtn');
-
+const postId = getPostId();
 
 postCommentBtn.addEventListener('click', async (event)=>{
 

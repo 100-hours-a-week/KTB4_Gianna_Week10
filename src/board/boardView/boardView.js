@@ -1,5 +1,5 @@
 import { loadHeader } from "../../components/header/header.js";
-import { getUser } from "../../module/module.js";
+import { getUser, getPostId } from "../../module/module.js";
 
 loadHeader();
 
