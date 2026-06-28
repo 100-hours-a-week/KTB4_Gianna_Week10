@@ -1,4 +1,4 @@
-import { loadHeader } from "../components/header/header.js";
+import { loadHeader } from "../../components/header/header.js";
 
 loadHeader();
 
@@ -121,4 +121,3 @@ if (postId) {
 
     updateForm(postId);
 }
-
