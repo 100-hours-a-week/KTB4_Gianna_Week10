@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f5f7;
+    color: #111111;
+    font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.mypage-update-page {
+    width: 100%;
+    padding: 135px 20px 0;
+}
+
+.mypage-update-page h1 {
+    margin: 0 0 18px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mypage-update-container {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.profile-section {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+#profilePictureLabel {
+    width: 100%;
+    margin: 0 0 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.profile-picture-edit {
+    width: 126px;
+    height: 126px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #333333;
+    cursor: pointer;
+}
+
+.profile-picture-edit span {
+    min-width: 38px;
+    height: 24px;
+    padding-top: 4px;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+}
+
+#newProfilePicture {
+    display: none;
+}
+
+.profile-form-section h5 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#emailDesc {
+    margin: 0 0 18px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#nicknameText {
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+#nicknameHelperText {
+    margin: 4px 0 8px;
+    color: #ff0000;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#updateBtn {
+    width: 100%;
+    height: 34px;
+    border: none;
+    border-radius: 4px;
+    background-color: #aca0eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#deleteBtn {
+    width: 100%;
+    height: 34px;
+    margin-top: 8px;
+    border: none;
+    background-color: transparent;
+    color: #111111;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#toastMsg {
+    min-height: 46px;
+    margin: 42px auto 0;
+    padding: 14px 20px;
+    border-radius: 24px;
+    background-color: #aca0eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#toastMsg:empty {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .mypage-update-page {
+        padding: 80px 20px 0;
+    }
+
+    .mypage-update-container {
+        width: 100%;
+        max-width: 320px;
+    }
+}

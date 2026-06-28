@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아무 말 대잔치</title>
+    <link rel="stylesheet" href="mypageUpdate.css">
     <script type="module" defer src="./mypageUpdate.js"></script>
 </head>
 <body>
     <div id="headerContainer"></div>
     
-    <h1>회원정보수정</h1>
-    <div class="mypage-update-container">
-        <h5 id="profilePictureLabel">프로필 사진 </h5>
-        <input id="newProfilePicture" type="file" accept="image/png, image/jpeg"/>
+    <main class="mypage-update-page">
+        <h1>회원정보수정</h1>
 
-        <h5 id="emailLabel">이메일</h5>
-        <h6 id="emailDesc"></h6>
+        <div class="mypage-update-container">
+            <section class="profile-section">
+                <h5 id="profilePictureLabel">프로필 사진*</h5>
+                <label class="profile-picture-edit" for="newProfilePicture">
+                    <span>변경</span>
+                </label>
+                <input id="newProfilePicture" type="file" accept="image/png, image/jpeg"/>
+            </section>
 
-        <h5 id="nickNameLabel">닉네임</h5>
-        <input id="nicknameText" type="text"></input>
-        <h6 id="nicknameHelperText">*helper text</h6>
+            <section class="profile-form-section">
+                <h5 id="emailLabel">이메일</h5>
+                <h6 id="emailDesc"></h6>
 
-        <button id="updateBtn">수정하기</button>
-        <button id="deleteBtn">회원 탈퇴</button>
-        
-        <h4 id="toastMsg"></h4>
-    </div>
+                <h5 id="nickNameLabel">닉네임</h5>
+                <input id="nicknameText" type="text">
+                <h6 id="nicknameHelperText">*helper text</h6>
+
+                <button id="updateBtn">수정하기</button>
+                <button id="deleteBtn">회원 탈퇴</button>
+            </section>
+            
+            <h4 id="toastMsg"></h4>
+        </div>
+    </main>
 </body>
 </html>
