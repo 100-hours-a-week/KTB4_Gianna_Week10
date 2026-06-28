@@ -1,3 +1,5 @@
+import { postId, getUser } from "./boardView.js";
+
 const postCommentBtn = document.getElementById('postCommentBtn');
 
 
@@ -88,6 +90,7 @@ const getCommentList = async (postId) => {
         console.error('로그인 중 오류 발생:', error);
     }
 }
+
 
 getCommentList(postId);
 

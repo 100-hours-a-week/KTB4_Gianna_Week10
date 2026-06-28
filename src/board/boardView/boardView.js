@@ -1,5 +1,9 @@
+import { loadHeader } from "../../components/header/header.js";
+
+loadHeader();
+
 const params = new URLSearchParams(window.location.search);
-const postId = params.get("postId");
+export const postId = params.get("postId");
 
 (async()=>{
     const cookie = await cookieStore.get('userId');
@@ -61,7 +65,7 @@ const makePostViewHeader = async (post, curUserId) =>{
         }        
 }
 
-const getUser = async(userId) =>{
+export const getUser = async(userId) =>{
     try{
         const response = await fetch(`http://localhost:8080/users/${userId}`, {
             method: 'GET',

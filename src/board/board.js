@@ -1,3 +1,7 @@
+import { loadHeader } from "../components/header/header.js";
+
+loadHeader();
+
 const postList = [];
 showPostList();
 
@@ -19,7 +23,7 @@ async function getPostList  () {
         data.data.postList.forEach(posts => {
             postList.push(posts);
         });
-    }catch(error){
+    } catch(error){
         console.error('로그인 중 오류 발생:', error);
     }
 }

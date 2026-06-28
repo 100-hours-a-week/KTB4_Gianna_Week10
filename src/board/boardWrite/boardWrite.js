@@ -1,3 +1,8 @@
+import { loadHeader } from "../components/header/header.js";
+
+loadHeader();
+
+
 const titleInput = document.getElementById('postTitle')
 const contentInput = document.getElementById('postContent')
 const pictureInput = document.getElementById('postUploadedPicture')
