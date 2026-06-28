@@ -39,43 +39,57 @@ async function showPostList () {
 }
 
 const makePostView = (post) =>{
- const postDiv = document.createElement("div");
-    postDiv.classList.add('common-container');
+    const postListContainer = document.getElementById('post-list-container');
+    const postDiv = document.createElement("article");
+    postDiv.classList.add('post-card');
     makeEventListener(postDiv, post.id)
 
+    const postMain = document.createElement('div');
+    postMain.classList.add('post-card-main');
+
     const title = document.createElement('h3');
-    title.id ="postListTitle"
+    title.classList.add('post-card-title');
     title.textContent = post.title;
-    postDiv.append(title)
+    postMain.append(title);
 
-    const likes = document.createElement('h4');
-    likes.id ="postListLikes"
-    likes.textContent = `좋아요 ${0}`;
-    postDiv.append(likes)
+    const meta = document.createElement('div');
+    meta.classList.add('post-card-meta');
 
-    const commentCount = document.createElement('h4');
-    commentCount.id ="postListCommentCount"
-    commentCount.textContent = `댓글 ${0}`;
-    postDiv.append(commentCount)
+    const stats = document.createElement('div');
+    stats.classList.add('post-card-stats');
 
-    const views = document.createElement('h4');
-    views.id ="postListViews"
-    views.textContent = `조회수 ${0}`;
-    postDiv.append(views)
+    const likes = document.createElement('span');
+    likes.textContent = `좋아요 ${post.likes || 0}`;
+    stats.append(likes);
 
-    const date = document.createElement('h4');
-    date.id = "postListDate"
-    date.textContent = post.createdAt
-    postDiv.append(date)
+    const commentCount = document.createElement('span');
+    commentCount.textContent = `댓글 ${post.commentCount || 0}`;
+    stats.append(commentCount);
 
-    const author = document.createElement('h4');
-    author.id = "postListAuthor"
+    const views = document.createElement('span');
+    views.textContent = `조회수 ${post.views || 0}`;
+    stats.append(views);
+
+    const date = document.createElement('span');
+    date.classList.add('post-card-date');
+    date.textContent = post.createdAt;
+
+    meta.append(stats, date);
+    postMain.append(meta);
+
+    const authorWrapper = document.createElement('div');
+    authorWrapper.classList.add('post-card-author');
+
+    const profile = document.createElement('div');
+    profile.classList.add('post-card-profile');
+
+    const author = document.createElement('span');
     author.textContent = post.author;
-    postDiv.append(author)
+    authorWrapper.append(profile, author);
 
-    
+    postDiv.append(postMain, authorWrapper);
 
-    document.body.appendChild(postDiv);
+    postListContainer.appendChild(postDiv);
 }
 
 const makeEventListener = (postDiv, postId)=>{

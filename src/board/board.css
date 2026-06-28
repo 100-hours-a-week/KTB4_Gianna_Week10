@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f5f7;
+    color: #111111;
+    font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.board-page {
+    width: 100%;
+    padding: 38px 20px 60px;
+}
+
+.board-intro {
+    width: 592px;
+    margin: 0 auto 16px;
+    position: relative;
+    text-align: center;
+}
+
+.board-intro h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.board-intro strong {
+    font-weight: 700;
+}
+
+.write-post-link {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    width: 138px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: #aca0eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.post-list-container {
+    width: 592px;
+    margin: 84px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.post-card {
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.post-card-main {
+    padding: 22px 24px 20px;
+}
+
+.post-card-title {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.post-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.post-card-stats {
+    display: flex;
+    gap: 12px;
+}
+
+.post-card-date {
+    white-space: nowrap;
+}
+
+.post-card-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px;
+    padding: 0 24px;
+    border-top: 1px solid #dddddd;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.post-card-profile {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+}
+
+@media (max-width: 680px) {
+    .board-page {
+        padding: 32px 16px 48px;
+    }
+
+    .board-intro,
+    .post-list-container {
+        width: 100%;
+        max-width: 592px;
+    }
+
+    .write-post-link {
+        position: static;
+        margin: 18px 0 0 auto;
+    }
+
+    .post-list-container {
+        margin-top: 20px;
+    }
+
+    .post-card-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
