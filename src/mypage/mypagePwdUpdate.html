@@ -10,12 +10,16 @@
     <div id="headerContainer"></div>
     
     <h3>비밀번호수정</h3>
-    <h5 id="password-input-">비밀번호</h5>
-    <input type="password" id="password-input" placeholder="비밀번호를 입력하세요"></input>
+    <div id="changePwdForm">
+        <h5 id="password-input-">비밀번호</h5>
+        <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"></input>
+        <p class="helper-text" id="pwdHelperText">* helper text</p>
 
-    <h5>비밀번호 확인</h5>
-    <input type="password" id="password-input-check" placeholder="비밀번호를 한번 더 입력하세요"></input>
+        <h5>비밀번호 확인</h5>
+        <input type="password" id="passwordInputCheck" placeholder="비밀번호를 한번 더 입력하세요"></input>
+        <p class="helper-text" id="pwdCheckHelperText">* helper text</p>
 
-    <button id="update-pwd-btn">수정하기</button>
+        <button id="updatePwdBtn">수정하기</button>
+    </div>
 </body>
 </html>
