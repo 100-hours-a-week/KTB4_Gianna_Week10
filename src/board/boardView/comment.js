@@ -1,7 +1,19 @@
-import { getPostId, getUser } from "../../module/module.js";
-
+import { getPostId, getUser, formalizeDate } from "../../module/module.js";
 const postCommentBtn = document.getElementById('postCommentBtn');
 const postId = getPostId();
+
+const commentEnterText = document.getElementById('commentContentEnter');
+commentEnterText.addEventListener('input', ()=>{
+    if(commentEnterText.value.length === 0){
+        postCommentBtn.disabled = true;
+        postCommentBtn.style.backgroundColor = "#aca0eb";
+    } else if(commentEnterText.value.length !== 0 ){
+        postCommentBtn.disabled = false;
+        postCommentBtn.style.backgroundColor = "#7f6aee";
+    }
+})
+
+
 
 postCommentBtn.addEventListener('click', async (event)=>{
 
@@ -111,7 +123,7 @@ const makeCommentView = async (comment, curUserId) =>{
 
     const date = document.createElement('h6');
     date.classList.add('comment-date-text');
-    date.textContent = comment.createdAt;
+    date.textContent = formalizeDate(comment.createdAt);
 
     const content = document.createElement('h6');
     content.classList.add('comment-content-text');
@@ -133,7 +145,11 @@ const makeCommentView = async (comment, curUserId) =>{
             const deleteBtn = document.createElement('button');
             deleteBtn.id = "postDeleteBtn";
             deleteBtn.textContent = "삭제"
-            deleteBtn.addEventListener('click', await requestDeleteComment(event, comment.id))
+            deleteBtn.addEventListener('click', async ()=>{
+                if(window.confirm("댓글을 삭제하시겠습니까?")){
+                    await requestDeleteComment(event, comment.id);
+                }
+            })
             deleteBtn.onclick = ()=>{location.reload()};
 
         actionGroup.append(updateBtn, deleteBtn);
@@ -142,6 +158,10 @@ const makeCommentView = async (comment, curUserId) =>{
 
     commentListContainer.append(commentItem);
 }
+
+// function throwDeleteModal(){
+    
+// }
 
 const requestDeleteComment = async (event, commentId) => {
      try{
@@ -156,7 +176,7 @@ const requestDeleteComment = async (event, commentId) => {
         if (!response.ok) {
             throw new Error('로그인 실패');
         }
-        
+        throwDeleteModal();
     }catch(error){
         console.error('로그인 중 오류 발생:', error);
     }

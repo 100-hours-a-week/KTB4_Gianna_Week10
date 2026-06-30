@@ -91,3 +91,18 @@ const makePostViewContent = (post) =>{
 
 
 boardViewProcess();
+
+const postStatsLikeBtn = document.getElementById('postStatsLikeBtn')
+let clickedLike = false;
+function clickLikeBtn (){
+    if(clickedLike){
+        postStatsLikeBtn.style.backgroundColor = "#d9d9d9"
+    }else if(!clickedLike){
+        postStatsLikeBtn.style.backgroundColor = "#aca0eb"
+    }
+    clickedLike = !clickedLike;
+}
+
+postStatsLikeBtn.addEventListener('click', ()=>{
+    clickLikeBtn();
+})
