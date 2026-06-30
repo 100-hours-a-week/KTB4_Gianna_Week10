@@ -26,7 +26,7 @@ const checkAllInputFilled = () =>{
         && emailInput.value.length !== 0
         && passwordInput.value.length !== 0
         && confirmPwdInput.value.length !== 0
-        && nicknameInput.value.lenhth !== 0) {
+        && nicknameInput.value.length !== 0) {
           signupBtn.style.backgroundColor = "#7f6aee"
         }
     signupBtn.style.backgroundColor = "#aca0eb"

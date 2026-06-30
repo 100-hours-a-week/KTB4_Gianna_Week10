@@ -28,15 +28,16 @@ export const pwdHelperTextMaker = (password, confirmPassword ="")=>{
     } else if(confirmPassword.length > 0 && password !== confirmPassword){
         return "*비밀번호가 다릅니다"
     }
-    return ""
+    return "";
 }
 
 export const confirmPwdHelperTextMaker = (password, confirmPassword) =>{
-    if(confirmPassword.elgnth === 0 ){
+    if(confirmPassword.length === 0 ){
         return "*비밀번호를 한 번 더 입력해주세요."
     } else if(confirmPassword !== password){
         return "*비밀번호가 다릅니다"
     }
+    return "";
 }
 
 export const nicknameHelperTextMaker = (nickname) =>{
