@@ -135,20 +135,19 @@ const makeCommentView = async (comment, curUserId) =>{
         actionGroup.classList.add('comment-action-group');
 
         const updateBtn = document.createElement('button');
-            updateBtn.id = "postUploadBtn";
-            updateBtn.textContent = "수정";   
-            updateBtn.onclick = () => requestUpdateComment(comment.id, comment.content);
+        updateBtn.id = "postUploadBtn";
+        updateBtn.textContent = "수정";   
+        updateBtn.onclick = () => requestUpdateComment(comment.id, comment.content);
             
-            const deleteBtn = document.createElement('button');
-            deleteBtn.id = "postDeleteBtn";
-            deleteBtn.textContent = "삭제"
-            deleteBtn.addEventListener('click', async (event)=>{
-                if(window.confirm("댓글을 삭제하시겠습니까?")){
-                    await requestDeleteComment(event, comment.id);
-                }
-            })
-            deleteBtn.onclick = ()=>{location.reload()};
-
+        const deleteBtn = document.createElement('button');
+        deleteBtn.id = "postDeleteBtn";
+        deleteBtn.textContent = "삭제"
+        deleteBtn.addEventListener('click', async (event)=>{
+            if(window.confirm("댓글을 삭제하시겠습니까?")){
+                await requestDeleteComment(event, comment.id);
+            }
+        })
+        
         actionGroup.append(updateBtn, deleteBtn);
         commentItem.append(actionGroup);
     }
@@ -156,9 +155,7 @@ const makeCommentView = async (comment, curUserId) =>{
     commentListContainer.append(commentItem);
 }
 
-// function throwDeleteModal(){
-    
-// }
+
 
 const requestDeleteComment = async (event, commentId) => {
      try{
@@ -170,8 +167,11 @@ const requestDeleteComment = async (event, commentId) => {
         if (!response.ok) {
             throw new Error('로그인 실패');
         }
-        throwDeleteModal();
-    }catch(error){
+
+        console.log('삭제 완료')
+        location.reload(); //목록 갱신
+        //throwDeleteModal();
+    } catch(error){
         console.error('로그인 중 오류 발생:', error);
     }
 }
