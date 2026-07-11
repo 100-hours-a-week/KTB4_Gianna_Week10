@@ -28,8 +28,11 @@ const checkAllInputFilled = () =>{
         && confirmPwdInput.value.length !== 0
         && nicknameInput.value.length !== 0) {
           signupBtn.style.backgroundColor = "#7f6aee"
+          signupBtn.disabled = false;
+        }else{
+            signupBtn.style.backgroundColor = "#aca0eb"
+            signupBtn.disabled = true;
         }
-    signupBtn.style.backgroundColor = "#aca0eb"
 }
 
 profilePictureInput.addEventListener('change', (event) =>{
