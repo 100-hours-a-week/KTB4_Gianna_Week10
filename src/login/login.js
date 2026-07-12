@@ -47,8 +47,4 @@ loginForm.addEventListener('submit', (event) => {
      
     validateEmailInput(emailValue);
     validatePwdInput(pwdValue);
-
-    if(emailHelperText.textContent !== "" || pwdHelperText.textContent !== "") {
-        event.preventDefault();
-    }
 });
