@@ -171,7 +171,6 @@ const requestDeleteComment = async (event, commentId) => {
 
         console.log('삭제 완료')
         location.reload(); //목록 갱신
-        //throwDeleteModal();
     } catch(error){
         console.error('로그인 중 오류 발생:', error);
     }
