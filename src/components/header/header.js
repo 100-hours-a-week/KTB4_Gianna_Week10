@@ -2,7 +2,7 @@ import { getUserId } from "../../module/module.js";
 
 export const loadHeader = async () => {
     try {
-        const response = await fetch('/src/components/header/header.html');
+        const response = await fetch('/components/header/header.html');
 
         if (!response.ok) {
             throw new Error('헤더를 불러오지 못했습니다.');
@@ -34,7 +34,7 @@ export const loadHeader = async () => {
 
         logoutItem?.addEventListener('click', () => {
             if (window.confirm("로그아웃 하시겠습니까?")) {
-                window.location.href = "/src/login/login.html";
+                window.location.href = "/login/login.html";
             } 
         });
     }
@@ -42,25 +42,20 @@ export const loadHeader = async () => {
 
 const setProfileImage = async (profileImage) => {
     const storedProfileImage = localStorage.getItem("profilePicture");
-
-    if (storedProfileImage && storedProfileImage !== "undefined") {
-        profileImage.src = storedProfileImage;
+    if (storedProfileImage && storedProfileImage !== null) {
+        profileImage.src = `http://localhost:8080/uploads/${storedProfileImage}`;
         return;
     }
-
+    
     try {
         const userId = await getUserId();
-        console.log(userId)
         if (!userId) {
             return;
         }
 
         const response = await fetch(`http://localhost:8080/users/${userId}/profilePicture`, {
             method: "GET",
-            credentials:"include",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            credentials:"include"
         });
 
         if (!response.ok) {
@@ -68,14 +63,13 @@ const setProfileImage = async (profileImage) => {
         }
 
         const data = await response.json();
-        const profilePictureData = data?.data?.profilePicture;
         
+        const profilePictureData = data?.data?.profilePicture;
+
         if (profilePictureData) {
-            profileImage.src = profilePictureData;
-            localStorage.setItem("profilePicture", profilePictureData);
+            profileImage.src = `http://localhost:8080/uploads/${storedProfileImage}`;
+            localStorage.setItem("profilePicture", storedProfileImage);
         }
-        profileImage.src = storedProfileImage;
-        console.log(profileImage)
 
     } catch (error) {
         console.error("프로필 이미지 로딩 중 오류 발생:", error);
