@@ -18,7 +18,8 @@ async function getPostList  () {
         }
 
         const data = await response.json();
-        data.data.postList.forEach(posts => {
+        const posts = data?.data?.postList || [];
+        posts.forEach(posts => {
             postList.push(posts);
         });
     } catch(error){
@@ -29,6 +30,10 @@ async function getPostList  () {
 async function showPostList () {
 
     await getPostList();
+    if (postList.length === 0) {
+        return;
+    }
+
     postList.forEach((post)=>{
         makePostView(post)
     })
