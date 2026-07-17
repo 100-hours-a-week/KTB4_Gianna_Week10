@@ -1,8 +1,4 @@
-import { loadHeader } from "../components/header/header.js";
 import { pfpHelperTextMaker, emailHelperTextMaker, pwdHelperTextMaker, confirmPwdHelperTextMaker, nicknameHelperTextMaker} from "../utils/helperTextMaker.js";
-
-loadHeader();
-
 
 const profilePictureInput = document.getElementById('profilePicture');
 const pfpHelperText = document.getElementById('pfpHelperText');
@@ -20,6 +16,11 @@ const nicknameInput = document.getElementById('nickname');
 const nicknameHelperText = document.getElementById('nicknameHelperText');
 
 const signupBtn = document.getElementById('signupBtn');
+const backBtn = document.getElementById('backBtn');
+
+backBtn.addEventListener('click', () => {
+    history.back();
+});
 
 const checkAllInputFilled = () =>{
     if(profilePictureInput.value.length !== 0 
@@ -28,10 +29,10 @@ const checkAllInputFilled = () =>{
         && confirmPwdInput.value.length !== 0
         && nicknameInput.value.length !== 0) {
             signupBtn.disabled = false;
-            signupBtn.style.backgroundColor = "#7f6aee"
+            signupBtn.style.backgroundColor = "#1f4b22"
     } else{
             signupBtn.disabled = true;
-            signupBtn.style.backgroundColor = "#aca0eb"
+            signupBtn.style.backgroundColor = "#8fa58a"
         }                                       
 }
 
