@@ -1,11 +1,14 @@
 import { loadHeader } from "../components/header/header.js";
 import { getUser, getUserId } from "../module/module.js";
 import { nicknameHelperTextMaker } from "../utils/helperTextMaker.js";
+import { requestCsrfAPIJsonResponse } from "../api/csrf.js";
+import { deleteCookie } from "../api/deleteCookie.js";
 
 await loadHeader();
 
 const userId = await getUserId();
 const user = await getUser(userId);
+const csrf = await requestCsrfAPIJsonResponse();
 
 const setForm = (user) =>{
     const newProfilePicture = document.getElementById('newProfilePicture');
@@ -46,7 +49,9 @@ updateBtn.addEventListener('click', async ()=>{
                 method: 'PATCH',
                 credentials:"include",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    [csrf.headerName] : csrf.token
+
                 },
                 body : JSON.stringify({
                     nickname:newNickname
@@ -80,7 +85,9 @@ deleteBtn.addEventListener('click', async ()=>{
                 method: 'DELETE',
                 credentials:"include",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    [csrf.headerName] : csrf.token
+
                 }, 
             });
 
@@ -88,7 +95,9 @@ deleteBtn.addEventListener('click', async ()=>{
                 throw new Error('닉네임 수정 실패');
             }
 
-            window.location.reload('/src/login/login.html')
+
+            const status = await deleteCookie();
+            if(status === 204) window.location.replace('/src/login/login.html')
         } catch(error){
             console.error('오류 발생:', error);
         }
