@@ -97,7 +97,7 @@ body {
 }
 
 .signup-container h2::after {
-    content: "Raffiné에 오신 것을 환영합니다.\A당신의 기록이 누군가의 하루를 빛냅니다.";
+    content: "라피네에 오신 것을 환영합니다.\A 당신만의 취향을 라피네와 \A함께 알아가보세요.";
     display: block;
     white-space: pre;
     margin-top: 24px;
