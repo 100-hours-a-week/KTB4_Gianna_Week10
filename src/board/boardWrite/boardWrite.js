@@ -1,3 +1,4 @@
+import { requestCsrfAPIJsonResponse } from "../../api/csrf.js";
 import { loadHeader } from "../../components/header/header.js";
 import { getUserId, getPostId, formalizeDate } from "../../module/module.js";
 
@@ -7,20 +8,18 @@ const pictureInput = document.getElementById('postUploadedPicture')
 const helperText = document.getElementById('helperText');
 const postWriteBtn = document.getElementById('postWriteBtn')
 
-const curDate = new Date();
-
 
 loadHeader();
 checkPostStatus();
-
+const csrf = await requestCsrfAPIJsonResponse();
 
 function changeButtonColorByCondition(){
     if(titleInput.value.length >= 1 && contentInput.value.length >=1){ 
         postWriteBtn.disabled = false;
-        postWriteBtn.style.backgroundColor = "#7f6aee";
+        postWriteBtn.style.backgroundColor = "#1f4b22";
     }else {
         postWriteBtn.disabled = true;
-        postWriteBtn.style.backgroundColor = "#aca0eb"
+        postWriteBtn.style.backgroundColor = "#8fa58a"
     }
 }
 
@@ -48,15 +47,22 @@ async function postWriteEventHandler() {
             method: 'POST',
             credentials:"include",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                [csrf.headerName] : csrf.token
+
             },
             body: JSON.stringify({
                 title : titleInput.value,
                 content : contentInput.value,
-                date : curDate,
+                date : new Date(),
                 file : pictureInput.value.length ===0 ? null : pictureInput.value
             })
         });
+
+        if (response.status === 401) {
+            window.location.href = "http://localhost:5500/src/login/login.html";
+            return;
+        }
 
         if (!response.ok) {
             throw new Error('게시글 작성 실패');
@@ -78,7 +84,9 @@ async function postUpdateEventHandler(){
             method: 'PATCH',
             credentials:"include",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                [csrf.headerName] : csrf.token
+
             },
             body: JSON.stringify({
                 title : titleInput.value,
@@ -124,13 +132,15 @@ async function setFormWithPostInfo(post){
     postWriteContainerDiv.append(imgFileName)
 }
 
-async function updateForm(postIdFromURL) {
+async function fillUpdtatingPostForm(postIdFromURL) {
     try {
         const response = await fetch(`http://localhost:8080/posts/${postIdFromURL}`, {
             method: 'GET',
             credentials:"include",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json', 
+                [csrf.headerName] : csrf.token
+
             },                
         });
 
@@ -153,5 +163,5 @@ if (postIdFromURL) {
     const postWriteBtn = document.getElementById('postWriteBtn');
     postWriteBtn.textContent = "수정하기"
 
-    updateForm(postIdFromURL);
+    fillUpdtatingPostForm(postIdFromURL);
 }
