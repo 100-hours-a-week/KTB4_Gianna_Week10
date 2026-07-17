@@ -1,7 +1,10 @@
 import { loadHeader } from "../components/header/header.js";
 import { pwdHelperTextMaker, confirmPwdHelperTextMaker } from "../utils/helperTextMaker.js";
+import { requestCsrfAPIJsonResponse } from "../api/csrf.js";
 
 loadHeader();
+
+const csrf = await requestCsrfAPIJsonResponse();
 
 const pwdInput = document.getElementById('passwordInput');
 const pwdHelperText = document.getElementById('pwdHelperText');
@@ -14,10 +17,10 @@ updatePwdBtn.disabled = true;
 function checkPwdValid(){
     if(pwdInput.value === pwdCheckInput.value){
         updatePwdBtn.disabled = false;
-        updatePwdBtn.style.backgroundColor = "#7f6aee"
+        updatePwdBtn.style.backgroundColor = "#1f4b22"
     }else{
         updatePwdBtn.disabled = true;
-        updatePwdBtn.style.backgroundColor = "#aca0eb"
+        updatePwdBtn.style.backgroundColor = "#8fa58a"
     }
 }
 
@@ -41,9 +44,10 @@ const requestUpdatePwd = async ()=>{
         const response = await fetch(`http://localhost:8080/users/${curUserId}/password`, {
             method: 'PATCH',
             credentials:"include",
-            credentials:"include",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                [csrf.headerName] : csrf.token
+
             },
             body: JSON.stringify({
                 password: pwdInput.value,
