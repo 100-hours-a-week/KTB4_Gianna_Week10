@@ -6,29 +6,27 @@ import { use, useState } from "react";
 export const LoginPage = ()=>{
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-    const [emailHelperText, setEmailHelperTest] = useState(null);
-    const [pwdHelperText, setPwdHelperTest] = useState(null);
+    const [emailHelperText, setEmailHelperText] = useState(null);
+    const [pwdHelperText, setPwdHelperText] = useState(null);
     const [isLoginEnabled, setIsLoginEnabled] = useState(false);
     
     function handleEmailChange(input){
-        const tempHelperText = emailHelperTextMaker(input);
+        const helperText = emailHelperTextMaker(input);
         setEmail(input);
-        setEmailHelperTest(tempHelperText);
-        console.log(email, emailHelperText)
-
-        checkLoginStatus(tempHelperText, pwdHelperText);
+        setEmailHelperText(helperText);
+        checkLoginStatus(helperText, pwdHelperText);
     }
 
     function handlePwdChange(input){
-        const tempHelperText = pwdHelperTextMaker(input);
-        setPwdHelperTest(tempHelperText);
+        const helperText = pwdHelperTextMaker(input);
+        setPwdHelperText(helperText);
         setPassword(input);
-        checkLoginStatus(emailHelperText, tempHelperText);
+        checkLoginStatus(emailHelperText, helperText);
     }
 
     function checkLoginStatus(emailHT, pwdHT){
-        if(emailHT.length === 0
-            && pwdHT.length === 0
+        if(email && emailHT.length === 0
+            && password && pwdHT.length === 0
         ){
             setIsLoginEnabled(true);
         } else{
