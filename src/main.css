@@ -48,8 +48,8 @@
 
 #mainpageSubTitle,
 #mainpageDesc,
-#signupBtn,
-#loginBtn {
+#gotoSignupBtn,
+#gotoLoginBtn {
     grid-column: 2;
     grid-row: 2;
     position: relative;
@@ -90,8 +90,8 @@
     line-height: 1.85;
 }
 
-#signupBtn,
-#loginBtn {
+#gotoSignupBtn,
+#gotoLoginBtn {
     align-self: center;
     height: 54px;
     margin-top: 230px;
@@ -102,7 +102,7 @@
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-#signupBtn {
+#gotoSignupBtn {
     width: 150px;
     border: none;
     margin-right: 370px;
@@ -113,16 +113,16 @@
 
 }
 
-#signupBtn::before {
+#gotoSignupBtn::before {
     content: "회원가입";
 }
 
-#signupBtn:hover {
+#gotoSignupBtn:hover {
     background-color: #213a21;
     transform: translateY(-2px);
 }
 
-#loginBtn {
+#gotoLoginBtn {
     width: 150px;
     border: 1px solid #2c4a2b;
     background-color: rgba(255, 255, 255, 0.28);
@@ -130,11 +130,11 @@
     text-align: center;
 }
 
-#loginBtn::before {
+#gotoLoginBtn::before {
     content: "로그인";
 }
 
-#loginBtn:hover {
+#gotoLoginBtn:hover {
     border-color: #2c4a2b;
     background-color: #3153305a;
     transform: translateY(-2px);
@@ -179,8 +179,8 @@
 
     #mainpageSubTitle,
     #mainpageDesc,
-    #signupBtn,
-    #loginBtn {
+    #gotoSignupBtn,
+    #gotoLoginBtn {
         width: min(100%, 560px);
         margin-left: 0;
     }
@@ -198,14 +198,14 @@
         margin-top: 228px;
     }
 
-    #signupBtn,
-    #loginBtn {
+    #gotoSignupBtn,
+    #gotoLoginBtn {
         grid-row: 3;
         align-self: start;
         margin-top: 346px;
     }
 
-    #loginBtn {
+    #gotoLoginBtn {
         margin-left: 172px;
     }
 
@@ -237,13 +237,13 @@
         font-size: 14px;
     }
 
-    #signupBtn,
-    #loginBtn {
+    #gotoSignupBtn,
+    #gotoLoginBtn {
         width: 100%;
         margin-top: 304px;
     }
 
-    #loginBtn {
+    #gotoLoginBtn {
         grid-row: 2;
         margin-top: 370px;
         margin-left: 0;
