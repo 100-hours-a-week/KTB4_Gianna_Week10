@@ -66,28 +66,6 @@ nicknameInput.addEventListener('input', ()=>{
 
 signupBtn.addEventListener('click', async (event) => {
 
-    try{
-        const response = await fetch('http://localhost:8080/users/signup', {
-            method: 'POST',
-            credentials:"include",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: emailInput.value,
-                password: passwordInput.value,
-                nickname: nicknameInput.value,
-                profilePicture: profilePictureInput?.files[0]?.name
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('회원가입 실패');
-        }
-        console.log('회원가입 성공:');
-        window.location.replace('../login/login.html');
-    }catch(error){
-        console.error('회원가입 중 오류 발생:', error);
-    }
+    
     
 });

@@ -21,7 +21,7 @@ export const emailHelperTextMaker = (email)=>{
 
 export const pwdHelperTextMaker = (password, confirmPassword ="")=>{
     const passwordRegex =  /^(?=\S{8,20}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])\S+$/;
-    if(password.length === 0){
+    if(!password && password.length === 0){
         return "*비밀번호를 입력해주세요.";
     } else if(!passwordRegex.test(password)){
         return "비밀번호는 8자 이상, 20자 이하이며, 대문자, 소문자, 숫자, 특수문자를 각각 최소 1개 포함해야 합니다.";
@@ -32,7 +32,7 @@ export const pwdHelperTextMaker = (password, confirmPassword ="")=>{
 }
 
 export const confirmPwdHelperTextMaker = (password, confirmPassword) =>{
-    if(confirmPassword.length === 0 ){
+    if(!confirmPassword && confirmPassword.length === 0 ){
         return "*비밀번호를 한 번 더 입력해주세요."
     } else if(confirmPassword !== password){
         return "*비밀번호가 다릅니다"
