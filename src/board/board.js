@@ -17,7 +17,7 @@ const defaultCategory = "일상";
 showPostList();
 
 async function getPostList  () {
-    try{
+   try{
         const response = await fetch('http://localhost:8080/posts', {
             method: 'GET',
             credentials:"include"        
@@ -32,6 +32,7 @@ async function getPostList  () {
         posts.forEach(posts => {
             postList.push(posts);
         });
+        console.log(posts)
     } catch(error){
         console.error('오류 발생:', error);
     }
