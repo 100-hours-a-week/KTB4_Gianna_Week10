@@ -53,8 +53,14 @@ export const PostDetailPage = () =>{
             <div id="headerContainer"></div>
             <main className="board-view-page">
                 <article className="post-detail">
-                    <div id="postHeader">{<PostHeader  user={user} post ={post} isAuthor={isAuthor}/>}</div>
-                    <div id="postContainer">{<PostDetail post ={post}/>} </div>
+                    <div id="postHeader">
+                        {<PostHeader  user={user} post ={post} isAuthor={isAuthor}/>}
+                    </div>
+
+                    <div id="postContainer">
+                        {<PostDetail post ={post}/>} 
+                    </div>
+                    
                     <div id="postStats" className="post-stats">
                         <button id="postStatsLikeBtn" type="button"><p id="postStatsLikeDesc"><strong></strong></p><span>좋아요수</span></button>
                         <button id="postStatsViewBtn" type="button"><p id="postStatsViewDesc"><strong></strong></p><span>조회수</span></button>
