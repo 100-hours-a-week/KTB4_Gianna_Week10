@@ -8,6 +8,7 @@ import { BoardPage } from "./src/board/BoardPage.jsx";
 import { PostWritePage } from "./src/pages/PostWritePage/PostWritePage.jsx";
 import { PostDetailPage } from "./src/pages/PostDetailPage/PostDetailPage.jsx";
 import { PostEditPage } from "./src/pages/PostEditPage/PostEditPage.jsx";
+import { MyPage } from "./src/MyPage/MyPage.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/posts/write" element={<PostWritePage/>}/>
         <Route path="/posts/:postId" element={<PostDetailPage/>}/>
         <Route path="/posts/:postId/edit" element={<PostEditPage/>}/>       
+        <Route path="/mypage" element={<MyPage/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

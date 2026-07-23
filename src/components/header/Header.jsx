@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { deleteCookie } from '../../api/deleteCookie';
 export const Header = () =>{
     const [isToggleOpen, setIsToggleOpen] = useState(false)
+    
     const navigate = useNavigate();
     function handleGoBack(){
         history.back();
@@ -23,8 +24,9 @@ export const Header = () =>{
     function goToBoard(){
         navigate('/board')
     }
+
     function goToMyPageUpdate(){
-        navigate('/');
+        navigate('/mypage');
     }
 
     function goToMyPagePwdUpdate(){
