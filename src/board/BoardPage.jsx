@@ -26,7 +26,6 @@ export const BoardPage = () =>{
 
         const data = await response.json();
         const postList = data?.data?.postList || [];
-        console.log(postList)
         setPostItems(postList)
     } catch(error){
         console.error('오류 발생:', error);

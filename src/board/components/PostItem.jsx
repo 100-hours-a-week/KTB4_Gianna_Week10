@@ -15,7 +15,7 @@ export const PostItem = ({ post, index }) => {
     const navigate = useNavigate();
 
     function handleClick() {
-        navigate(`/board/${post.id}`);
+        navigate(`/posts/${post.id}`);
     }
 
     function getPostImage(post, index) {
@@ -26,7 +26,7 @@ export const PostItem = ({ post, index }) => {
     }
 
     return (
-        <article className="post-card" onClick={handleClick}>
+        <article className="post-card" onClick={handleClick} post={post}>
             <div
                 className="post-card-image"
                 style={{
