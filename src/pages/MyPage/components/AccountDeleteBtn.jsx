@@ -1,5 +1,5 @@
-import { requestCsrfAPIJsonResponse } from "../../api/csrf";
-import { deleteCookie } from "../../api/deleteCookie";
+import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
+import { deleteCookie } from "../../../api/deleteCookie";
 import { useNavigate } from "react-router-dom";
 export const AccountDeleteBtn = ({userId}) =>{
     const navigate = useNavigate();

@@ -2,8 +2,8 @@ import './ChangePasswordPage.css'
 import { useState } from 'react'
 import { PasswordUpdateForm } from './components/PasswordUpdateForm'
 import { PasswordUpdateSubmit } from './components/PasswordUpdateSubmit'
-import { pwdHelperTextMaker, confirmPwdHelperTextMaker } from '../utils/helperTextMaker'
-import { Header } from '../components/Header/Header'
+import { pwdHelperTextMaker, confirmPwdHelperTextMaker } from '../../utils/helperTextMaker'
+import { Header } from '../../components/Header/Header'
 
 export const ChangePasswordPage = ()=>{
     const [password, setPassword] = useState("")

@@ -1,5 +1,5 @@
 import "./LoginPage.css"
-import { emailHelperTextMaker, pwdHelperTextMaker } from "../utils/helperTextMaker.js";
+import { emailHelperTextMaker, pwdHelperTextMaker } from "../../utils/helperTextMaker.js";
 import { LoginForm } from "./components/LoginForm.jsx";
 import { use, useState } from "react";
 

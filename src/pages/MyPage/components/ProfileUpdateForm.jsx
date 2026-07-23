@@ -1,5 +1,5 @@
 import { AccountDeleteBtn } from "./AccountDeleteBtn"
-import { requestCsrfAPIJsonResponse } from "../../api/csrf";
+import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 export const ProfileUpdateForm = ({email, userId, nickname, onNicknameChange}) =>{

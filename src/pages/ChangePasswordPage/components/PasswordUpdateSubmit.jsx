@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { requestCsrfAPIJsonResponse } from "../../api/csrf";
-import { getUserId } from "../../module/module";
+import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
+import { getUserId } from "../../../module/module";
 import { useNavigate } from "react-router-dom";
 export const PasswordUpdateSubmit = ({password, onUpdate, isSubmitEnable}) =>{
     const navigate = useNavigate();

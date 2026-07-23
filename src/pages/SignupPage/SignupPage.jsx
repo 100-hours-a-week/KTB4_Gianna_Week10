@@ -2,7 +2,7 @@ import "./SignupPage.css"
 import { SignupForm } from "./components/SignupForm"
 import { SignupSubmit } from "./components/SignupSubmit"
 import { useState } from "react"
-import { emailHelperTextMaker, pwdHelperTextMaker, confirmPwdHelperTextMaker, nicknameHelperTextMaker,pfpHelperTextMaker } from "../utils/helperTextMaker"
+import { emailHelperTextMaker, pwdHelperTextMaker, confirmPwdHelperTextMaker, nicknameHelperTextMaker,pfpHelperTextMaker } from "../../utils/helperTextMaker"
 
 export const SignupPage = () =>{
     const [nickname, setNickname] = useState("");

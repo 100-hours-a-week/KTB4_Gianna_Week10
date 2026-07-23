@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { formalizeDate } from "../../module/module";
+import { formalizeDate } from "../../../module/module";
 
 const defaultCategory = "카테고리";
 const defaultPostImages = [

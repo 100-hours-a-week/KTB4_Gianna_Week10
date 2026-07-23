@@ -1,4 +1,4 @@
-import {requestCsrfAPIJsonResponse} from '../../api/csrf'
+import {requestCsrfAPIJsonResponse} from '../../../api/csrf'
 export const PasswordUpdateForm= ({pwdHelperText, confirmPwdHelperText, onPasswordChange, onConfirmPwdChange})=>{
 
     return(

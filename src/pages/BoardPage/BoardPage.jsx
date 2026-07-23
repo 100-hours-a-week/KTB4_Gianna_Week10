@@ -1,9 +1,9 @@
 import './BoardPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect} from 'react';
-import { requestCsrfAPIJsonResponse } from '../api/csrf';
-import { PostItem } from './components/PostItem';
-import { Header } from '../components/Header/Header.jsx'
+import { requestCsrfAPIJsonResponse } from '../../api/csrf.js';
+import { PostItem } from './components/PostItem.jsx';
+import { Header } from '../../components/Header/Header.jsx'
 export const BoardPage = () =>{
     const navigate = useNavigate();
     const [postItems, setPostItems] = useState([]);
