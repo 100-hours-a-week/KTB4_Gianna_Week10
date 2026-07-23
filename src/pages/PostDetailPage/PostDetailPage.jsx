@@ -38,7 +38,7 @@ export const PostDetailPage = () =>{
                     
                 }
                 setPost(data.data)
-                setUser(postUser)
+                setUser(getUserResponse)
 
         }catch(error){
             console.error('boardView 오류 발생:', error);
