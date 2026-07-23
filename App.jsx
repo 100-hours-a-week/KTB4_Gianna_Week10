@@ -9,6 +9,7 @@ import { PostWritePage } from "./src/pages/PostWritePage/PostWritePage.jsx";
 import { PostDetailPage } from "./src/pages/PostDetailPage/PostDetailPage.jsx";
 import { PostEditPage } from "./src/pages/PostEditPage/PostEditPage.jsx";
 import { MyPage } from "./src/MyPage/MyPage.jsx";
+import { ChangePasswordPage } from "./src/ChangePasswordPage/ChangePasswordPage.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/posts/:postId" element={<PostDetailPage/>}/>
         <Route path="/posts/:postId/edit" element={<PostEditPage/>}/>       
         <Route path="/mypage" element={<MyPage/>}/>
+        <Route path="/mypage/password" element={<ChangePasswordPage/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

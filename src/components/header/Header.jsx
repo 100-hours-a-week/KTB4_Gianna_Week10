@@ -30,7 +30,7 @@ export const Header = () =>{
     }
 
     function goToMyPagePwdUpdate(){
-        navigate('/');
+        navigate('/mypage/password');
     }
 
    

@@ -1,11 +1,19 @@
-export const getPostId = () =>{
-    const params = new URLSearchParams(window.location.search);
-    return params.get("postId");
+export const getPostIdFromURL = () =>{
+    const params = window.location.pathname;
+    const match = params.match(/^\/posts\/(\d+)$/);
+    return match[1];
 }
 
 export const getUserId = async () =>{
-    const cookie = await cookieStore.get('userId');
-    return cookie.value;
+    try{
+        const cookie = await cookieStore.get('userId');
+        return cookie.value;
+    }catch(error){
+        window.alert('재로그인이 필요합니다.')
+        window.location.replace('/login')
+        return null;
+    }
+
 }
 
 import { requestCsrfAPIJsonResponse } from "../api/csrf.js";
@@ -21,13 +29,14 @@ const csrf = await requestCsrfAPIJsonResponse();
             }   
         });
 
-        if (!response.ok) {
-            throw new Error('사용자 정보 조회 실패');
-        }
-
-        const data = await response.json();
-        
-        return data.data;
+        // if (!response.ok) {
+        //     console.error('오류 발생 : 사용자 정보 조회 실패', response.status);
+        //     return response;
+        // }else{ 
+            const data = await response.json();
+            return data.data;
+        //}
+       
     }catch(error){
         console.error('오류 발생:', error);
     }
