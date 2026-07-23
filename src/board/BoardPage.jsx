@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect} from 'react';
 import { requestCsrfAPIJsonResponse } from '../api/csrf';
 import { PostItem } from './components/PostItem';
-
+import { Header } from '../components/Header/Header.jsx'
 export const BoardPage = () =>{
     const navigate = useNavigate();
     const [postItems, setPostItems] = useState([]);
@@ -36,7 +36,7 @@ export const BoardPage = () =>{
 
     return(
         <>
-            <div id="headerContainer"></div>
+            <div id="headerContainer"> {<Header/>} </div>
             <main className="board-page">
                 <section className="board-intro">
                     <h1>온전한 '나의 취향'을 <br/>만들어가는 공간. <br/></h1>

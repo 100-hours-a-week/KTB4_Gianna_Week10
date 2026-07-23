@@ -1,6 +1,7 @@
 import './PostWritePage.css'
 import { PostWriteForm } from './components/PostWriteForm';
 import { PostWriteSubmit } from './components/PostWriteSubmit';
+import { Header } from '../../components/Header/Header';
 import { use, useState } from 'react';
 export const PostWritePage = () =>{
     const [title, setTitle] = useState("");
@@ -10,7 +11,7 @@ export const PostWritePage = () =>{
     const isPostEnable = title.length > 0 && content.length > 0;
     return(
         <>
-            <div id="headerContainer"></div>
+            <div id="headerContainer">{<Header/>}</div>
 
             <main className="post-write-page">
                 <h1 id="postWriteTitle">취향 기록</h1>

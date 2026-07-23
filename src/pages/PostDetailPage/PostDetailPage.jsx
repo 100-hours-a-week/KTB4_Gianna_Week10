@@ -6,12 +6,13 @@ import { PostDetail } from './component/PostContent';
 import { PostHeader } from './component/PostHeader';
 import { CommentForm } from './component/CommentForm';
 import { CommentList } from './component/CommentList';
+import { Header } from '../../components/Header/Header';
 export const PostDetailPage = () =>{
     const [post, setPost] = useState(null);
     const [user, setUser] = useState(null);
     const postId = getPostIdFromURL();
-    
-    async function checkIsAuthor(){
+
+    let isAuthor = () => async function checkIsAuthor(){
         const userIdCookie = await cookieStore.get('userId');
         return post.userId === userIdCookie.value;
     }
@@ -32,12 +33,16 @@ export const PostDetailPage = () =>{
                 }
 
                 const data = await response.json();
+                const getUserResponse = await getUser(data.data.userId)
+                if(getUserResponse.status === 403){
+                    
+                }
                 setPost(data.data)
-                setUser( await getUser(data.data.userId))
+                setUser(postUser)
 
         }catch(error){
             console.error('boardView 오류 발생:', error);
-            }   
+        }   
         }
         getPost();
         }, [postId])
@@ -46,11 +51,9 @@ export const PostDetailPage = () =>{
         return <p>로딩중...</p>;
     }
 
-    const isAuthor = checkIsAuthor();
-     
     return (
         <>
-            <div id="headerContainer"></div>
+            <div id="headerContainer">{<Header/>}</div>
             <main className="board-view-page">
                 <article className="post-detail">
                     <div id="postHeader">
